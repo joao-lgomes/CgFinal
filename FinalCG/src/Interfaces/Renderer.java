@@ -93,20 +93,6 @@ public class Renderer implements GLEventListener {
         
     }
     
-    /*public void drawing(GLAutoDrawable drawable, float R, float G, float B){
-        GL2 gl = drawable.getGL().getGL2();
-        
-        this.drawable = drawable;
-
-        //  Limpa a tela e o Z-Buffer
-        gl.glClear(GL2.GL_COLOR_BUFFER_BIT|GL2.GL_DEPTH_BUFFER_BIT);
-        gl.glColor3f(R, G, B);
-
-        if(draw) generateImage(gl);
-
-        gl.glFlush();
-    }*/
-    
     public void display(float R, float G, float B){
         this.R=R;
         this.G=G;
@@ -143,6 +129,11 @@ public class Renderer implements GLEventListener {
             gl.glVertex2f(v.getX(), v.getY());
         }
         gl.glEnd();
+    }
+    
+    private void done(GL2 gl){
+        gl.glEnd();
+        gl.glFlush();
     }
     
     @Override
