@@ -7,7 +7,9 @@ import Utils.Vertex;
  * @author herba
  */
 public class Main extends javax.swing.JFrame {
-
+    float R = 1f;
+    float G = 0f;
+    float B = 0f;
     /**
      * Creates new form Main
      */
@@ -256,7 +258,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jbComboPrimitivasActionPerformed
 
     private void jButtonDrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDrawActionPerformed
-        
+        this.R = Float.parseFloat(jTextField1.getText());
+        this.G = Float.parseFloat(jTextField2.getText());
+        this.B = Float.parseFloat(jTextField3.getText());
         renderer.setDraw(true);
         renderer.setPrimitive(jbComboPrimitivas.getSelectedItem().toString());
         
@@ -283,7 +287,7 @@ public class Main extends javax.swing.JFrame {
                 
             }
             
-            renderer.display();
+            renderer.display(this.R, this.G, this.B);
             jPanelDesenho.repaint();
             
         }catch(Exception e){
@@ -296,7 +300,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButtonCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCleanActionPerformed
         renderer.setDraw(false);
-        renderer.display();
+        renderer.display(this.R, this.G, this.B);
         jPanelDesenho.repaint();
     }//GEN-LAST:event_jButtonCleanActionPerformed
 

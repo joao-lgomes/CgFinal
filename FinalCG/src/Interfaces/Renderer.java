@@ -22,6 +22,9 @@ import java.util.List;
  * @author herba
  */
 public class Renderer implements GLEventListener {
+    float R;
+    float G;
+    float B;
     
     private String primitive;
     
@@ -90,23 +93,26 @@ public class Renderer implements GLEventListener {
         
     }
     
-    public void drawing(GLAutoDrawable drawable){
+    /*public void drawing(GLAutoDrawable drawable, float R, float G, float B){
         GL2 gl = drawable.getGL().getGL2();
         
         this.drawable = drawable;
 
         //  Limpa a tela e o Z-Buffer
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT|GL2.GL_DEPTH_BUFFER_BIT);
-        gl.glColor3f(1f, 0, 0);
+        gl.glColor3f(R, G, B);
 
         if(draw) generateImage(gl);
 
         gl.glFlush();
-    }
+    }*/
     
-    public void display(){
-        this.drawing(drawable);
-        //this.display(drawable);
+    public void display(float R, float G, float B){
+        this.R=R;
+        this.G=G;
+        this.B=B;
+        //this.drawing(drawable, R, G,B);
+        this.display(drawable);
     }
     
     
@@ -116,10 +122,12 @@ public class Renderer implements GLEventListener {
         GL2 gl = drawable.getGL().getGL2();
         
         this.drawable = drawable;
-
+        System.out.println("R: "+this.R);
+        System.out.println("G: "+this.G);
+        System.out.println("B: "+this.B);
         //  Limpa a tela e o Z-Buffer
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT|GL2.GL_DEPTH_BUFFER_BIT);
-        gl.glColor3f(1f, 0, 0);
+        gl.glColor3f(this.R, this.G, this.B);
 
         if(draw) generateImage(gl);
 
