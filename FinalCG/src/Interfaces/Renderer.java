@@ -90,8 +90,23 @@ public class Renderer implements GLEventListener {
         
     }
     
+    public void drawing(GLAutoDrawable drawable){
+        GL2 gl = drawable.getGL().getGL2();
+        
+        this.drawable = drawable;
+
+        //  Limpa a tela e o Z-Buffer
+        gl.glClear(GL2.GL_COLOR_BUFFER_BIT|GL2.GL_DEPTH_BUFFER_BIT);
+        gl.glColor3f(1f, 0, 0);
+
+        if(draw) generateImage(gl);
+
+        gl.glFlush();
+    }
+    
     public void display(){
-        this.display(drawable);
+        this.drawing(drawable);
+        //this.display(drawable);
     }
     
     
