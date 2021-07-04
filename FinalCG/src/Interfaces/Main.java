@@ -533,22 +533,22 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.sX -= 0.2;
+        this.sX -= 0.2f;
         jTextField5.setText((""+this.sX));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        this.sX += 0.2;
+        this.sX += 0.2f;
         jTextField5.setText((""+this.sX));
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        this.sY -= 0.2;
+        this.sY -= 0.2f;
         jTextField6.setText((""+this.sY));
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        this.sY += 0.2;
+        this.sY += 0.2f;
         jTextField6.setText((""+this.sY));
     }//GEN-LAST:event_jButton6ActionPerformed
 
