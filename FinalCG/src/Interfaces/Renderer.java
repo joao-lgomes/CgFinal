@@ -22,9 +22,15 @@ import java.util.List;
  * @author herba
  */
 public class Renderer implements GLEventListener {
-    float R;
-    float G;
-    float B;
+    private float R;
+    private float G;
+    private float B;
+    private float transX = 0f;
+    private float transY = 0f;
+    private float alpha = 0f; //rotação
+    private float sX = 1f;
+    private float sY = 1f; //escala em Y
+    
     
     private String primitive;
     
@@ -93,10 +99,15 @@ public class Renderer implements GLEventListener {
         
     }
     
-    public void display(float R, float G, float B){
+    public void display(float R, float G, float B, float transX, float transY, float alpha, float sX, float sY){
         this.R=R;
         this.G=G;
         this.B=B;
+        this.transX = transX;
+        this.transY = transY;
+        this.sX = sX;
+        this.sY = sY;
+        this.alpha = alpha;
         //this.drawing(drawable, R, G,B);
         this.display(drawable);
     }
@@ -114,8 +125,16 @@ public class Renderer implements GLEventListener {
         //  Limpa a tela e o Z-Buffer
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT|GL2.GL_DEPTH_BUFFER_BIT);
         gl.glColor3f(this.R, this.G, this.B);
-
+        gl.glPushMatrix();
+	gl.glTranslatef(transX, transY, 0);
+	gl.glRotatef(alpha, 0, 0, 1.0f);//rotaciona em 90 graus
+	gl.glScalef(sX, sY, 0);
+        
         if(draw) generateImage(gl);
+        
+	gl.glPopMatrix();
+        
+        
 
         gl.glFlush();
 
